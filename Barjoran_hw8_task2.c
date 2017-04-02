@@ -19,7 +19,7 @@
 #define MAX 81
 /* Function Prototypes */
 void Usage(void); 
-void getOptions(char task);
+void getOptions(char task, char str[]);
 void PrintOption(char *string);
 
 /* Main Program */
@@ -28,7 +28,7 @@ int  main(int argc, char *argv[])
 
 	char task;
 	char str[MAX];
-	task = argv[1];
+	task = atoi(argv[1]);
 
 
 	if (argc != 2)
@@ -40,7 +40,7 @@ int  main(int argc, char *argv[])
 		printf(" did use right stype default now is p\n");
 		task = 'p';
 	} 
-	getOptions(task);
+	getOptions(task, str);
 	PrintOption(str);
 
 	return 0;
@@ -55,17 +55,17 @@ void Usage(void)
 }
 
 
-void getOptions(char task)
+void getOptions(char task,char str[] )
 {
 	printf("please enter someithng until you want ot end which is crt d");
-	str =getchar();
+	(*str) =getchar();
 	if (task == 'p')
 	{
 			printf("we've left it alone like you wanted");
 	}
 	else if (task == 'l')
 	{
-		for ( int i = 0; i < sizeof(str)/sizeof(char) ; i++)
+		for ( int i = 0; i < (sizeof(str)/sizeof(char)) ; i++)
 		{
 			str[i]= toupper(str[i]);
 		}
